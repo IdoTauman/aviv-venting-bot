@@ -39,4 +39,4 @@ async def on_message(msg):
                     await user.send('aviv is venting about his shitass brothers')
                     last_dm[i] = time.time()
 
-client.run('MTA3MTExMTIyNTk0NzIwMTU5Ng.GWpvcF.E0aaHyKWWBoe09d9DNcDWpQQLDkpE1KsNHHbd8')
+client.run({token})
