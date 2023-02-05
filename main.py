@@ -1,11 +1,15 @@
 import discord
 from random import choice
 import time
+from discord import app_commands
 
 intents = discord.Intents.default()
 client = discord.Client(intents=intents)
+tree = app_commands.CommandTree(client)
 
 insults = ['bad', 'stupid', 'dumb', 'who asked']
+
+ariel_roasts = ['imagine paying for a free game', 'imagine spoiling an entire anime, also, imagine watching anime']
 
 recipients = ['748981885258170389', '769139609187123240', '633687383660953603']
 
@@ -17,6 +21,8 @@ async def on_ready():
     print(client.user.name)
     print(client.user.id)
     print('------')
+
+    await tree.sync(guild=discord.Object(id=1049253865112997888))
 
 @client.event
 async def on_message(msg):
@@ -38,5 +44,9 @@ async def on_message(msg):
                 if i not in last_dm or time.time() - last_dm[i] >= 600:
                     await user.send('aviv is venting about his shitass brothers')
                     last_dm[i] = time.time()
+
+@tree.command(name= 'roast_ariel', description= 'roast ariel', guild=discord.Object(id=1049253865112997888))
+async def roast_ariel(interaction):
+    await interaction.response.send_message(choice(ariel_roasts))
 
 client.run({token})
