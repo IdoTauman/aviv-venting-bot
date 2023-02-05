@@ -7,7 +7,7 @@ client = discord.Client(intents=intents)
 
 insults = ['bad', 'stupid', 'dumb', 'who asked']
 
-recipients = ['748981885258170389', '769139609187123240']
+recipients = ['748981885258170389', '769139609187123240', '633687383660953603']
 
 last_dm = {}
 
